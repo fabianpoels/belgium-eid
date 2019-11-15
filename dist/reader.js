@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var pcsclite = require("@pokusew/pcsclite");
+var pcsclite = require("pcsclite");
 var EventEmitter = require("events");
 var card_1 = __importDefault(require("./card"));
 var Reader = /** @class */ (function (_super) {
