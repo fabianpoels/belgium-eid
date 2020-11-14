@@ -4,10 +4,14 @@ export default class Card {
 
     static pkcs11: pkcs11js.PKCS11 = new pkcs11js.PKCS11();
 
+    addressAndStreetNumber: string;
+    addressMunicipality: string;
+    addressZipcode: string;
     firstnames: string;
     surname: string;
     cardNumber: string;
     chipNumber: string;
+    dateOfBirth: string;
     nationalNumber: string;
     nationality: string;
     gender: string;
@@ -15,6 +19,7 @@ export default class Card {
 
     constructor() {
         this.firstnames = this.surname = this.cardNumber = this.chipNumber = this.nationalNumber = this.nationality = this.gender = this.documentType = "";
+        this.addressAndStreetNumber = this.addressMunicipality = this.addressZipcode = this.dateOfBirth = "";
         this.readCard();
     }
 
@@ -71,7 +76,18 @@ export default class Card {
                     case "document_type":
                         this.documentType = attrs[1].value.toString();
                         break;
-
+                    case "date_of_birth":
+                        this.dateOfBirth = attrs[1].value.toString();
+                        break;
+                    case "addres_street_and_number":
+                        this.addressAndStreetNumber = attrs[1].value.toString();
+                        break;
+                    case "address_zip":
+                        this.addressZipcode = attrs[1].value.toString();
+                        break;
+                    case "address_municipality":
+                        this.addressMunicipality = attrs[1].value.toString();
+                        break;
                 }
             }
             

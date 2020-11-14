@@ -4,11 +4,13 @@ var pkcs11js = require("pkcs11js");
 var Card = /** @class */ (function () {
     function Card() {
         this.firstnames = this.surname = this.cardNumber = this.chipNumber = this.nationalNumber = this.nationality = this.gender = this.documentType = "";
+        this.addressAndStreetNumber = this.addressMunicipality = this.addressZipcode = this.dateOfBirth = "";
         this.readCard();
     }
     Card.prototype.initPkcs11 = function () {
         try {
-            Card.pkcs11.load("C:\\Windows\\System32\\beidpkcs11.dll");
+            // Card.pkcs11.load("C:\\Windows\\System32\\beidpkcs11.dll");
+            Card.pkcs11.load("/usr/lib/x86_64-linux-gnu/libbeidpkcs11.so.0");
             Card.pkcs11.C_Initialize();
         }
         catch (error) {
@@ -53,7 +55,19 @@ var Card = /** @class */ (function () {
                     case "document_type":
                         this.documentType = attrs[1].value.toString();
                         break;
-                }
+                    case "date_of_birth":
+                        this.dateOfBirth = attrs[1].value.toString();
+                        break;
+                    case "addres_street_and_number":
+                        this.addressAndStreetNumber = attrs[1].value.toString();
+                        break;
+                    case "address_zip":
+                        this.addressZipcode = attrs[1].value.toString();
+                        break;
+                    case "address_municipality":
+                        this.addressMunicipality = attrs[1].value.toString();
+                        break;
+              }
             }
             hObject = Card.pkcs11.C_FindObjects(session);
         }
