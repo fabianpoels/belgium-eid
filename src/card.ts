@@ -21,7 +21,7 @@ export default class Card {
     private initPkcs11(): void {
         try {
             // Card.pkcs11.load("C:\\Windows\\System32\\beidpkcs11.dll");
-            Card.pkcs11.load("/usrlib/x86_64-linux-gnu/libbeidpkcs11.so");
+            Card.pkcs11.load("/usr/lib/x86_64-linux-gnu/libbeidpkcs11.so");
             Card.pkcs11.C_Initialize();
         } catch (error) {
             console.error(error);
