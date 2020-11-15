@@ -79,7 +79,7 @@ export default class Card {
                     case "date_of_birth":
                         this.dateOfBirth = attrs[1].value.toString();
                         break;
-                    case "addres_street_and_number":
+                    case "address_street_and_number":
                         this.addressAndStreetNumber = attrs[1].value.toString();
                         break;
                     case "address_zip":
